@@ -4,10 +4,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'caracal/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'caracal'
-  spec.version       = Caracal::VERSION
-  spec.authors       = ['Trade Infomatics', 'John Dugan']
-  spec.email         = ['jpdugan@gmail.com']
+  spec.name          = 'ws-caracal'
+  spec.version       = '1.0.0.0'
+  spec.authors       = ['WSGR', 'Trade Infomatics', 'John Dugan']
+  spec.email         = 'no-reply@wsgr.com'
   spec.summary       = %q{ Fast, professional Microsoft Word (docx) writer for Ruby. }
   spec.description   = %q{ Caracal is a pure Ruby Microsoft Word generation library that produces professional quality MSWord documents (docx) using a simple, HTML-style DSL. }
   spec.homepage      = 'https://github.com/trade-informatics/caracal'
@@ -21,7 +21,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'nokogiri', '~> 1.6'
   spec.add_dependency 'rubyzip',  '~> 1.1'
   spec.add_dependency 'tilt',     '>= 1.4'
-
-  spec.add_development_dependency 'rake',     '~> 10.0'
-  spec.add_development_dependency 'rspec',    '~> 3.0'
 end
