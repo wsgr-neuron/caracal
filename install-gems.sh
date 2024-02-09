@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -eEuo pipefail
+
+trap 'printf "\n\e[31mError: Exit Status %s (%s)\e[m\n" $? "$(basename "$0")"' ERR
+
+cd "$(dirname "$0")"
+
+echo
+echo "Start ($(basename "$0"))"
 
 function boolean-var {
   variable_name=$1
@@ -45,11 +52,19 @@ echo "Gem Directory: $gem_dir"
 echo "Remove Gems: $remove_gems"
 
 echo
-
 echo "Removing bundler configuration"
 echo "- - -"
 
 cmd="rm -rfv ./.bundle"
+
+echo $cmd
+($cmd)
+
+echo
+echo "Removing Gemfile.lock"
+echo "- - -"
+
+cmd="rm -fv Gemfile.lock"
 
 echo $cmd
 ($cmd)
@@ -67,10 +82,11 @@ if $remove_gems; then
   ($cmd)
 fi
 
+echo
 echo "Setting bundler path"
 echo "- - -"
 
-cmd="bundle config set --local path ./gems"
+cmd="bundle config set --local path $gem_dir"
 
 echo $cmd
 ($cmd)
@@ -86,11 +102,10 @@ if [ operational == "$posture" ]; then
   ($cmd)
 fi
 
-cmd="bundle update --all"
+cmd="bundle install --standalone"
 
 echo $cmd
 ($cmd)
 
-echo "- - -"
-echo "(done)"
 echo
+echo "Done ($(basename "$0"))"
