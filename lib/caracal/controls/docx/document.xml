@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:body>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="Heading1"/>
+      </w:pPr>
+      <w:r>
+        <w:t>Some Agreement</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:r>
+        <w:t xml:space="preserve">Example paragraph. </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t>Bold text</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">. </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:u w:val="single"/>
+        </w:rPr>
+        <w:t>Underlined text</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">. </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t xml:space="preserve">Bold </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+          <w:u w:val="single"/>
+        </w:rPr>
+        <w:t>then underlined</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t xml:space="preserve"> text</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">. </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:u w:val="single"/>
+        </w:rPr>
+        <w:t xml:space="preserve">Underlined </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+          <w:u w:val="single"/>
+        </w:rPr>
+        <w:t>then bolded</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:u w:val="single"/>
+        </w:rPr>
+        <w:t xml:space="preserve"> text</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">. </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+          <w:u w:val="single"/>
+        </w:rPr>
+        <w:t>Bold and underlined text</w:t>
+      </w:r>
+      <w:r>
+        <w:t>. Some “</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t>quoted bold</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve">” text. Some text that’s got a contraction. some-value (some interpolated text). </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="MissingVariable"/>
+        </w:rPr>
+        <w:t>{{some_missing_variable}}</w:t>
+      </w:r>
+      <w:r>
+        <w:t xml:space="preserve"> (some missing variable). </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="DocumentError"/>
+        </w:rPr>
+        <w:t>Error: Some error message</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="3"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:u w:val="single"/>
+        </w:rPr>
+        <w:t>Some clause</w:t>
+      </w:r>
+      <w:r>
+        <w:t>. Some paragraph text.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="3"/>
+        </w:numPr>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:u w:val="single"/>
+        </w:rPr>
+        <w:t>Some other clause</w:t>
+      </w:r>
+      <w:r>
+        <w:t>. Some other paragraph text.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:numPr>
+          <w:ilvl w:val="0"/>
+          <w:numId w:val="3"/>
+        </w:numPr>
+        <w:sectPr/>
+      </w:pPr>
+      <w:r>
+        <w:rPr>
+          <w:u w:val="single"/>
+        </w:rPr>
+        <w:t>Yet another clause</w:t>
+      </w:r>
+      <w:r>
+        <w:t>. Yet another paragraph text.</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t>Some Signatory</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:r>
+        <w:t>Name: Some Person</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="SignatureField"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Signature: </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="SignatureAnchorText"/>
+        </w:rPr>
+        <w:t>~some-signature-anchor~</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="SignatureAnchorText"/>
+        </w:rPr>
+        <w:tab/>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:r>
+        <w:t>Title: Some Title</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="SignatureDateField"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Date: </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="SignatureAnchorText"/>
+        </w:rPr>
+        <w:t>~some-signature-date-anchor~</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="SignatureAnchorText"/>
+        </w:rPr>
+        <w:tab/>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:r>
+        <w:br w:type="column"/>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:b/>
+        </w:rPr>
+        <w:t>Some Other Signatory</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:r>
+        <w:t>Name: Some Other Person</w:t>
+      </w:r>
+    </w:p>
+    <w:p>
+      <w:pPr>
+        <w:pStyle w:val="SignatureField"/>
+      </w:pPr>
+      <w:r>
+        <w:t xml:space="preserve">Signature: </w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="SignatureAnchorText"/>
+        </w:rPr>
+        <w:t>~some-other-signature-identifier~</w:t>
+      </w:r>
+      <w:r>
+        <w:rPr>
+          <w:rStyle w:val="SignatureAnchorText"/>
+        </w:rPr>
+        <w:tab/>
+      </w:r>
+    </w:p>
+    <w:sectPr>
+      <w:type w:val="continuous"/>
+      <w:cols w:num="2"/>
+    </w:sectPr>
+  </w:body>
+</w:document>

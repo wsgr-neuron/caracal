@@ -21,4 +21,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'nokogiri', '~> 1.6'
   spec.add_dependency 'rubyzip',  '~> 1.1'
   spec.add_dependency 'tilt',     '>= 1.4'
+
+  spec.add_dependency 'evt-initializer'
+
+  spec.add_dependency 'test_bench-fixture'
+
+  spec.add_dependency 'ws-xml-fixtures'
 end

@@ -1,0 +1,1 @@
+require "caracal/controls/docx"

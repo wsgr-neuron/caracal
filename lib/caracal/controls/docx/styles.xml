@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:docDefaults>
+    <w:rPrDefault>
+      <w:rPr>
+        <w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>
+        <w:lang w:val="en-US"/>
+      </w:rPr>
+    </w:rPrDefault>
+    <w:pPrDefault/>
+  </w:docDefaults>
+  <w:style w:type="character" w:default="1" w:styleId="DefaultParagraphFont">
+    <w:name w:val="Default Paragraph Font"/>
+    <w:semiHidden/>
+    <w:unhideWhenUsed/>
+  </w:style>
+  <w:style w:type="paragraph" w:default="1" w:styleId="Normal">
+    <w:name w:val="Normal"/>
+    <w:pPr>
+      <w:spacing w:after="180" w:before="0"/>
+    </w:pPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="Heading1">
+    <w:name w:val="heading 1"/>
+    <w:basedOn w:val="Normal"/>
+    <w:next w:val="Normal"/>
+    <w:rPr>
+      <w:b/>
+      <w:caps/>
+    </w:rPr>
+    <w:pPr>
+      <w:keepNext/>
+      <w:keepLines/>
+      <w:jc w:val="center"/>
+    </w:pPr>
+  </w:style>
+  <w:style w:type="character" w:styleId="MissingVariable">
+    <w:name w:val="Missing Variable"/>
+    <w:basedOn w:val="DefaultParagraphFont"/>
+    <w:rPr>
+      <w:b/>
+      <w:shd w:val="clear" w:color="auto" w:fill="FFCCCC"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="ListParagraph">
+    <w:name w:val="List Paragraph"/>
+    <w:basedOn w:val="Normal"/>
+    <w:pPr>
+      <w:tabs>
+        <w:tab w:val="left" w:pos="360"/>
+      </w:tabs>
+      <w:numPr>
+        <w:numId w:val="3"/>
+      </w:numPr>
+    </w:pPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="SignatureField">
+    <w:name w:val="Signature Field"/>
+    <w:basedOn w:val="Normal"/>
+    <w:next w:val="Normal"/>
+    <w:pPr>
+      <w:tabs>
+        <w:tab w:val="left" w:pos="4320"/>
+      </w:tabs>
+      <w:spacing w:before="400" w:after="200"/>
+    </w:pPr>
+  </w:style>
+  <w:style w:type="paragraph" w:styleId="SignatureDateField">
+    <w:name w:val="Signature Date Field"/>
+    <w:basedOn w:val="Normal"/>
+    <w:next w:val="Normal"/>
+    <w:pPr>
+      <w:tabs>
+        <w:tab w:val="left" w:pos="4320"/>
+      </w:tabs>
+    </w:pPr>
+  </w:style>
+  <w:style w:type="character" w:styleId="SignatureAnchorText">
+    <w:name w:val="Signature Anchor Text"/>
+    <w:basedOn w:val="DefaultParagraphFont"/>
+    <w:rPr>
+      <w:color w:val="FFFFFF"/>
+      <w:spacing w:val="-720"/>
+      <w:u w:val="single" w:color="000000"/>
+    </w:rPr>
+  </w:style>
+  <w:style w:type="character" w:styleId="DocumentError">
+    <w:name w:val="DocumentError"/>
+    <w:basedOn w:val="DefaultParagraphFont"/>
+    <w:rPr>
+      <w:b/>
+      <w:color w:val="FFFFFF" w:themeColor="background1"/>
+      <w:shd w:val="clear" w:color="auto" w:fill="C00000"/>
+    </w:rPr>
+  </w:style>
+</w:styles>
