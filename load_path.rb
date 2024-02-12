@@ -8,10 +8,17 @@ rescue LoadError
 end
 
 lib_dir = File.expand_path("lib", __dir__)
-$LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
+if not $LOAD_PATH.include?(lib_dir)
+  $LOAD_PATH.unshift(lib_dir)
+end
 
 libraries_dir = ENV["LIBRARIES_HOME"]
-unless libraries_dir.nil?
-  libraries_dir = File.expand_path(libraries_dir)
-  $LOAD_PATH.unshift libraries_dir unless $LOAD_PATH.include?(libraries_dir)
+return if libraries_dir.nil?
+
+libraries_dir = File.expand_path(libraries_dir)
+
+Dir.glob("#{libraries_dir}/*/lib") do |library_dir|
+  if not $LOAD_PATH.include?(library_dir)
+    $LOAD_PATH.unshift(library_dir)
+  end
 end
