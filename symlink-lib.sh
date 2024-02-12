@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-set -eo pipefail
+set -eEuo pipefail
+
+trap 'printf "\n\e[31mError: Exit Status %s (%s)\e[m\n" $? "$(basename "$0")"' ERR
+
+cd "$(dirname "$0")"
+
+echo
+echo "Start ($(basename "$0"))"
 
 if [ -z ${LIBRARIES_HOME+x} ]; then
   echo "LIBRARIES_HOME must be set to the libraries directory path... exiting"
@@ -12,59 +19,33 @@ if [ ! -d "$LIBRARIES_HOME" ]; then
   exit 1
 fi
 
-function make-directory {
-  directory=$1
-
-  lib_directory="$LIBRARIES_HOME/$directory"
-
-  if [ ! -d "$lib_directory" ]; then
-    echo "- making directory $lib_directory"
-    mkdir -p "$lib_directory"
-  fi
-}
-
-function symlink-lib {
-  name="$(basename "$1")"
-  directory="$(dirname "$1")"
-
-  if [ "$directory" = "." ]; then
-    directory=
-  fi
+for gemspec in {.,*}/*.gemspec; do
+  gem_name=$(basename "$gemspec" .gemspec)
+  gemspec_path=$(dirname "$gemspec")
 
   echo
-  echo "Symlinking $name"
+  echo "Symlinking $gem_name"
   echo "- - -"
 
-  src="$(pwd)/lib"
-  dest="$LIBRARIES_HOME"
-  if [ -n "$directory" ]; then
-    src="$src/$directory"
-    dest="$dest/$directory"
+  (
+    cd "$gemspec_path"
 
-    make-directory "$directory"
-  fi
-  src="$src/$name"
+    source=$(pwd)
+    destination="$LIBRARIES_HOME/$gem_name"
 
-  echo "- destination is $dest"
+    echo "Source: $source"
+    echo "Destination: $destination"
+    echo
 
-  for entry in "$src"*; do
-    entry_basename="$(basename "$entry")"
-    dest_item="$dest/$entry_basename"
-
-    if ! [ -L "$dest_item" ]; then
-      echo "- symlinking $entry_basename to $dest_item"
-
-      cmd="ln -s $entry $dest_item"
+    if ! [ -L "$destination" ]; then
+      cmd="ln -s \"$source\" \"$destination\""
       echo "$cmd"
-      ($cmd)
+      eval "$cmd"
     else
-      echo "- $dest_item is already symlinked"
+      echo "Already symlinked"
     fi
-  done
+  )
+done
 
-  echo "- - -"
-  echo "($name done)"
-  echo
-}
-
-symlink-lib "caracal"
+echo
+echo "Done ($(basename "$0"))"
