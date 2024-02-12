@@ -19,6 +19,8 @@ if [ ! -d "$LIBRARIES_HOME" ]; then
   exit 1
 fi
 
+shopt -s nullglob
+
 for gemspec in {.,*}/*.gemspec; do
   gem_name=$(basename "$gemspec" .gemspec)
   gemspec_path=$(dirname "$gemspec")
