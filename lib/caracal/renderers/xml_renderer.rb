@@ -62,13 +62,17 @@ module Caracal
       # This method returns a commonly used set of attributes for paragraph nodes.
       #
       def paragraph_options
-        { 'w:rsidP' => '00000000', 'w:rsidRDefault' => '00000000' }.merge(run_options)
+        ## Removed - Nathan, Fri Feb 16 2024
+        #{ 'w:rsidP' => '00000000', 'w:rsidRDefault' => '00000000' }.merge(run_options)
+        {}.merge(run_options)
       end
 
       # This method returns a commonly used set of attributes for text run nodes.
       #
       def run_options
-        { 'w:rsidR' => '00000000', 'w:rsidRPr' => '00000000', 'w:rsidDel' => '00000000' }
+        ## Removed - Nathan, Fri Feb 16 2024
+        #{ 'w:rsidR' => '00000000', 'w:rsidRPr' => '00000000', 'w:rsidDel' => '00000000' }
+        {}
       end
 
       # These save options force Nokogiri to remove indentation and

@@ -89,7 +89,8 @@ module Caracal
                   xml['w'].rFonts( { 'w:ascii' => f, 'w:hAnsi' => f, 'w:eastAsia' => f, 'w:cs' => f })
                 end
               end
-              xml['w'].rtl({ 'w:val' => '0' })
+              ## Removed - Nathan, Fri Feb 16 2024
+              #xml['w'].rtl({ 'w:val' => '0' })
             end
           end
         end
@@ -273,7 +274,8 @@ module Caracal
         xml['w'].p paragraph_options do
           xml['w'].pPr do
             xml['w'].pStyle({ 'w:val' => model.paragraph_style })  unless model.paragraph_style.nil?
-            xml['w'].contextualSpacing({ 'w:val' => '0' })
+            ## Removed - Nathan, Mon Feb 19 2024
+            #xml['w'].contextualSpacing({ 'w:val' => '0' })
             xml['w'].jc({ 'w:val' => model.paragraph_align })  unless model.paragraph_align.nil?
             render_run_attributes(xml, model, true)
           end
@@ -297,6 +299,9 @@ module Caracal
       end
 
       def render_text(xml, model)
+        ## Added - Nathan, Mon Feb 19 2024
+        return if model.text_content.empty?
+
         xml['w'].r run_options do
           render_run_attributes(xml, model, false)
           xml['w'].t({ 'xml:space' => 'preserve' }, model.text_content)

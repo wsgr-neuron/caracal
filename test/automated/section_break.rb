@@ -1,0 +1,32 @@
+require_relative "automated_init"
+
+context "Section Break" do
+  docx_data = Caracal::Document.render do |docx|
+    docx.p do |p|
+      #p.section_properties(:continuous, columns: 2)
+
+      p.text "Some text"
+    end
+  end
+
+  fixture(Fixtures::Docx::Package, docx_data) do |docx|
+    docx.assert_document do |document|
+      document.assert_body do |body|
+        body.assert_one_paragraph(<<~XML)
+        <w:p>
+          <w:pPr>
+            <w:sectPr>
+              <w:type w:val="continuous" />
+              <w:cols w:num="2" />
+            </w:sectPr>
+          </w:pPr>
+          <w:r>
+            <w:rPr/>
+            <w:t xml:space="preserve">Some text</w:t>
+          </w:r>
+        </w:p>
+        XML
+      end
+    end
+  end
+end
