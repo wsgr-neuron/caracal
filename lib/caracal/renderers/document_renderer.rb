@@ -273,8 +273,18 @@ module Caracal
 
         xml['w'].p paragraph_options do
           xml['w'].pPr do
+            model.section_properties! do |section_properties|
+              xml['w'].sectPr do
+                xml['w'].type({ 'w:val' => section_properties.type })
+
+                if section_properties.columns?
+                  xml['w'].cols({ 'w:num' => section_properties.columns })
+                end
+              end
+            end
+
             xml['w'].pStyle({ 'w:val' => model.paragraph_style })  unless model.paragraph_style.nil?
-            ## Removed - Nathan, Mon Feb 19 2024
+            ## Removed - Nathan, Fri Feb 16 2024
             #xml['w'].contextualSpacing({ 'w:val' => '0' })
             xml['w'].jc({ 'w:val' => model.paragraph_align })  unless model.paragraph_align.nil?
             render_run_attributes(xml, model, true)
@@ -299,7 +309,7 @@ module Caracal
       end
 
       def render_text(xml, model)
-        ## Added - Nathan, Mon Feb 19 2024
+        ## Added - Nathan, Fri Feb 16 2024
         return if model.text_content.empty?
 
         xml['w'].r run_options do
