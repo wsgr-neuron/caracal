@@ -9,8 +9,7 @@ require_relative "../init.rb"
 require "pp"
 require "test_bench"; TestBench.activate
 
+require "docx/fixtures"
+
 require "caracal/controls"
 Controls = Caracal::Controls
-
-require "caracal/fixtures"
-Fixtures = Caracal::Fixtures

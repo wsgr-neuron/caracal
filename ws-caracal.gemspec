@@ -24,7 +24,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'evt-initializer'
 
-  spec.add_dependency 'test_bench-fixture'
-
-  spec.add_dependency 'ws-xml-fixtures'
+  spec.add_dependency 'ws-docx-fixtures'
 end

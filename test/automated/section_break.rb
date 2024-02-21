@@ -9,7 +9,7 @@ context "Section Break" do
     end
   end
 
-  fixture(Fixtures::Docx::Package, docx_data) do |docx|
+  fixture(Docx::Fixtures::Package, docx_data) do |docx|
     docx.assert_document do |document|
       document.assert_body do |body|
         body.assert_one_paragraph(<<~XML)
