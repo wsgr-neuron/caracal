@@ -31,6 +31,16 @@ module Caracal
               #============= PAGE SETTINGS ==============================
 
               xml['w'].sectPr do
+                document.final_section_properties! do |section_properties|
+                  if section_properties.type?
+                    xml['w'].type({ 'w:val' => section_properties.type })
+                  end
+
+                  if section_properties.columns?
+                    xml['w'].cols({ 'w:num' => section_properties.columns })
+                  end
+                end
+
                 if document.page_number_show
                   if rel = document.find_relationship('footer1.xml')
                     xml['w'].footerReference({ 'r:id' => rel.formatted_id, 'w:type' => 'default' })
@@ -275,7 +285,9 @@ module Caracal
           xml['w'].pPr do
             model.section_properties! do |section_properties|
               xml['w'].sectPr do
-                xml['w'].type({ 'w:val' => section_properties.type })
+                if section_properties.type?
+                  xml['w'].type({ 'w:val' => section_properties.type })
+                end
 
                 if section_properties.columns?
                   xml['w'].cols({ 'w:num' => section_properties.columns })

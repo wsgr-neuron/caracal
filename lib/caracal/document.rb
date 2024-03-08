@@ -163,6 +163,23 @@ module Caracal
     end
 
 
+    ## Added - Nathan, Fri Mar 8 2024
+    attr_accessor :raw_final_section_properties
+    SectionProperties = Core::Models::ParagraphModel::SectionProperties
+
+    def final_section_properties(type: nil, columns: nil)
+      self.raw_final_section_properties = SectionProperties.new(type, columns)
+    end
+
+    def final_section_properties!(&block)
+      final_section_properties = raw_final_section_properties
+
+      if not final_section_properties.nil?
+        block.(final_section_properties)
+      end
+    end
+
+
     #------------------------------------------------------
     # Private Instance Methods
     #------------------------------------------------------

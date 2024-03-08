@@ -62,8 +62,25 @@ module Caracal
         ## Added - Nathan, Fri Feb 16 2024
         attr_accessor :raw_section_properties
         SectionProperties = Struct.new(:type, :columns) do
+          def type?
+            !type.nil?
+          end
+
           def columns?
             !columns.nil?
+          end
+        end
+
+        def section_properties(type: nil, columns: nil)
+          self.raw_section_properties = SectionProperties.new(type, columns)
+        end
+
+        ## Identify better way of segregating builder interface from XML rendering interface - Nathan, Fri Feb 16 2024
+        def section_properties!(&block)
+          section_properties = raw_section_properties
+
+          if not section_properties.nil?
+            block.(section_properties)
           end
         end
 
@@ -168,21 +185,6 @@ module Caracal
             raise Caracal::Errors::InvalidModelError, ':text method must receive a string for the display text.'
           end
           model
-        end
-
-        ## Added - Nathan, Fri Feb 16 2024
-        def section_properties(type, columns: nil)
-          ## Avoid use of instance variable - Nathan, Fri Feb 16 2024
-          @section_properties = SectionProperties.new(type, columns)
-        end
-
-        ## Identify better way of segregating builder interface from XML rendering interface - Nathan, Fri Feb 16 2024
-        def section_properties!(&block)
-          section_properties = @section_properties
-
-          if not section_properties.nil?
-            block.(section_properties)
-          end
         end
 
 

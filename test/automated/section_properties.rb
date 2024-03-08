@@ -3,22 +3,24 @@ require_relative "automated_init"
 context "Section Break" do
   docx_data = Caracal::Document.render do |docx|
     docx.p do |p|
-      p.section_properties("continuous", columns: 2)
+      p.section_properties(type: "continuous", columns: 2)
 
       p.text "Some text"
     end
 
     docx.p do |p|
-      p.section_properties("nextPage")
+      p.section_properties(type: "nextPage")
 
       p.text "Some more text"
     end
 
     docx.p do |p|
-      p.section_properties("nextColumn")
+      p.section_properties(type: "nextColumn")
 
       p.text "Yet more text"
     end
+
+    docx.final_section_properties(columns: 3)
   end
 
   fixture(Docx::Fixtures::Package, docx_data) do |docx|
@@ -57,6 +59,10 @@ context "Section Break" do
         end
 
         body.assert_final_paragraph
+
+        body.assert_section_properties do |section_properties|
+          section_properties.assert_columns(3)
+        end
       end
     end
   end
