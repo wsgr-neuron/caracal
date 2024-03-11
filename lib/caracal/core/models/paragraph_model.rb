@@ -84,6 +84,12 @@ module Caracal
           end
         end
 
+        ## Added - Nathan, Mon Mar 11 2024
+        def column_break
+          model = Caracal::Core::Models::ColumnBreakModel.new
+          runs << model
+          model
+        end
 
         #========== SETTERS ===============================
 

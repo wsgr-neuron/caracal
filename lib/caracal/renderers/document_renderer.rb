@@ -214,6 +214,13 @@ module Caracal
         end
       end
 
+      ## Added - Nathan, Mon Mar 11 2024
+      def render_columnbreak(xml, _model)
+        xml['w'].r do
+          xml['w'].br({ "w:type" => "column" })
+        end
+      end
+
       def render_link(xml, model)
         if model.external?
           rel = document.relationship({ target: model.link_href, type: :link })

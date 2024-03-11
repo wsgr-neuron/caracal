@@ -1,5 +1,7 @@
 require 'caracal/core/models/paragraph_model'
 require 'caracal/core/models/line_break_model'
+## Added - Nathan, Mon 11 Mar 2024
+require 'caracal/core/models/column_break_model'
 require 'caracal/errors'
 
 
