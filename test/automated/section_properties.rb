@@ -1,6 +1,6 @@
 require_relative "automated_init"
 
-context "Section Break" do
+context "Section Properties" do
   docx_data = Caracal::Document.render do |docx|
     docx.p do |p|
       p.section_properties(type: "continuous", columns: 2)
