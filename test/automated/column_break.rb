@@ -13,25 +13,23 @@ context "Column Break" do
 
   fixture(Docx::Fixtures::Package, docx_data) do |docx|
     docx.assert_document do |document|
-      document.assert_body do |body|
-        body.assert_next_paragraph do |paragraph|
-          paragraph.assert_next_run do |run|
-            run.assert_text("Some text")
-          end
-
-          paragraph.assert_next_run do |run|
-            run.assert_column_break
-          end
-
-          paragraph.assert_next_run do |run|
-            run.assert_text("Some other text")
-          end
-
-          paragraph.assert_final_run
+      document.assert_next_paragraph do |paragraph|
+        paragraph.assert_next_run do |run|
+          run.assert_text("Some text")
         end
 
-        body.assert_final_paragraph
+        paragraph.assert_next_run do |run|
+          run.assert_column_break
+        end
+
+        paragraph.assert_next_run do |run|
+          run.assert_text("Some other text")
+        end
+
+        paragraph.assert_final_run
       end
+
+      document.assert_final_paragraph
     end
   end
 end

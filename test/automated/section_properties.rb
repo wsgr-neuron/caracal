@@ -25,44 +25,42 @@ context "Section Properties" do
 
   fixture(Docx::Fixtures::Package, docx_data) do |docx|
     docx.assert_document do |document|
-      document.assert_body do |body|
-        body.assert_next_paragraph do |paragraph|
-          paragraph.assert_section_properties do |section_properties|
-            section_properties.refute_break
+      document.assert_next_paragraph do |paragraph|
+        paragraph.assert_section_properties do |section_properties|
+          section_properties.refute_break
 
-            section_properties.assert_columns(2)
-          end
-
-          paragraph.assert_one_run do |run|
-            run.assert_text("Some text")
-          end
+          section_properties.assert_columns(2)
         end
 
-        body.assert_next_paragraph do |paragraph|
-          paragraph.assert_section_properties do |section_properties|
-            section_properties.assert_page_break
-          end
+        paragraph.assert_one_run do |run|
+          run.assert_text("Some text")
+        end
+      end
 
-          paragraph.assert_one_run do |run|
-            run.assert_text("Some more text")
-          end
+      document.assert_next_paragraph do |paragraph|
+        paragraph.assert_section_properties do |section_properties|
+          section_properties.assert_page_break
         end
 
-        body.assert_next_paragraph do |paragraph|
-          paragraph.assert_section_properties do |section_properties|
-            section_properties.assert_column_break
-          end
+        paragraph.assert_one_run do |run|
+          run.assert_text("Some more text")
+        end
+      end
 
-          paragraph.assert_one_run do |run|
-            run.assert_text("Yet more text")
-          end
+      document.assert_next_paragraph do |paragraph|
+        paragraph.assert_section_properties do |section_properties|
+          section_properties.assert_column_break
         end
 
-        body.assert_final_paragraph
-
-        body.assert_section_properties do |section_properties|
-          section_properties.assert_columns(3)
+        paragraph.assert_one_run do |run|
+          run.assert_text("Yet more text")
         end
+      end
+
+      document.assert_final_paragraph
+
+      document.assert_section_properties do |section_properties|
+        section_properties.assert_columns(3)
       end
     end
   end
