@@ -7,6 +7,11 @@ require 'tilt'
 ## Added since many files in this project require Nokogiri, and Nokogiri can't load without Rubygems having been activated
 ## - Nathan, Mon Mar 25 2024
 require 'rubygems'
+## When --enable-frozen-string-literal is activated, the rubyzip gem won't function properly
+## - Nathan, Mon Mar 25 2024
+if "".frozen?
+  warn "Warning: RubyZip doesn't work when frozen_string_literal is enabled"
+end
 
 # odds & ends
 require 'caracal/errors'
