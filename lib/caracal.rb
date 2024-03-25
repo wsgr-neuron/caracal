@@ -4,6 +4,9 @@
 
 # external dependencies
 require 'tilt'
+## Added since many files in this project require Nokogiri, and Nokogiri can't load without Rubygems having been activated
+## - Nathan, Mon Mar 25 2024
+require 'rubygems'
 
 # odds & ends
 require 'caracal/errors'
