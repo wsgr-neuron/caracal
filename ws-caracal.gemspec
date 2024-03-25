@@ -5,7 +5,7 @@ require 'caracal/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'ws-caracal'
-  spec.version       = '1.1.0.1'
+  spec.version       = '1.1.0.2'
   spec.authors       = ['WSGR', 'Trade Infomatics', 'John Dugan']
   spec.email         = 'no-reply@wsgr.com'
   spec.summary       = %q{ Fast, professional Microsoft Word (docx) writer for Ruby. }
