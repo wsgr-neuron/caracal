@@ -10,7 +10,7 @@ require 'rubygems'
 ## When --enable-frozen-string-literal is activated, the rubyzip gem won't function properly
 ## - Nathan, Mon Mar 25 2024
 if "".frozen?
-  warn "Warning: RubyZip doesn't work when frozen_string_literal is enabled"
+  warn "\e[1;33mWarning: RubyZip doesn't work when frozen_string_literal is enabled\e[39;22m"
 end
 
 # odds & ends
