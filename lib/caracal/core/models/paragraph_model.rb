@@ -61,7 +61,7 @@ module Caracal
 
         ## Added - Nathan, Fri Feb 16 2024
         attr_accessor :raw_section_properties
-        SectionProperties = Struct.new(:type, :columns) do
+        SectionProperties = Struct.new(:type, :columns, :margin_inches) do
           def type?
             !type.nil?
           end
@@ -69,10 +69,18 @@ module Caracal
           def columns?
             !columns.nil?
           end
+
+          def margin?
+            !margin_inches.nil?
+          end
+
+          def margin_scalar
+            Integer(margin_inches * 1440)
+          end
         end
 
-        def section_properties(type: nil, columns: nil)
-          self.raw_section_properties = SectionProperties.new(type, columns)
+        def section_properties(type: nil, columns: nil, margin_inches: nil)
+          self.raw_section_properties = SectionProperties.new(type, columns, margin_inches)
         end
 
         ## Identify better way of segregating builder interface from XML rendering interface - Nathan, Fri Feb 16 2024

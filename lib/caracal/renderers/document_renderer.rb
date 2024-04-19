@@ -31,6 +31,8 @@ module Caracal
               #============= PAGE SETTINGS ==============================
 
               xml['w'].sectPr do
+                page_margin = false
+
                 document.final_section_properties! do |section_properties|
                   if section_properties.type?
                     xml['w'].type({ 'w:val' => section_properties.type })
@@ -38,6 +40,18 @@ module Caracal
 
                   if section_properties.columns?
                     xml['w'].cols({ 'w:num' => section_properties.columns })
+                  end
+
+                  if section_properties.margin?
+                    scalar = section_properties.margin_scalar
+                    xml['w'].pgMar({
+                      'w:top' => scalar,
+                      'w:right' => scalar,
+                      'w:bottom' => scalar,
+                      'w:left' => scalar
+                    })
+
+                    page_margin = true
                   end
                 end
 
@@ -47,7 +61,10 @@ module Caracal
                   end
                 end
                 xml['w'].pgSz page_size_options
-                xml['w'].pgMar page_margin_options
+
+                if not page_margin
+                  xml['w'].pgMar page_margin_options
+                end
               end
 
             end
@@ -298,6 +315,16 @@ module Caracal
 
                 if section_properties.columns?
                   xml['w'].cols({ 'w:num' => section_properties.columns })
+                end
+
+                if section_properties.margin?
+                  scalar = section_properties.margin_scalar
+                  xml['w'].pgMar({
+                    'w:top' => scalar,
+                    'w:right' => scalar,
+                    'w:bottom' => scalar,
+                    'w:left' => scalar
+                  })
                 end
               end
             end

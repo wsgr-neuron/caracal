@@ -3,7 +3,7 @@ require_relative "automated_init"
 context "Section Properties" do
   docx_data = Caracal::Document.render do |docx|
     docx.p do |p|
-      p.section_properties(type: "continuous", columns: 2)
+      p.section_properties(type: "continuous", columns: 2, margin_inches: 1.11)
 
       p.text "Some text"
     end
@@ -20,7 +20,7 @@ context "Section Properties" do
       p.text "Yet more text"
     end
 
-    docx.final_section_properties(columns: 3)
+    docx.final_section_properties(columns: 3, margin_inches: 2.22)
   end
 
   fixture(Docx::Fixtures::Package, docx_data) do |docx|
@@ -30,6 +30,8 @@ context "Section Properties" do
           section_properties.refute_break
 
           section_properties.assert_columns(2)
+
+          section_properties.assert_page_margins(1.11)
         end
 
         paragraph.assert_one_run do |run|
@@ -61,6 +63,8 @@ context "Section Properties" do
 
       document.assert_section_properties do |section_properties|
         section_properties.assert_columns(3)
+
+        section_properties.assert_page_margins(2.22)
       end
     end
   end

@@ -167,8 +167,8 @@ module Caracal
     attr_accessor :raw_final_section_properties
     SectionProperties = Core::Models::ParagraphModel::SectionProperties
 
-    def final_section_properties(type: nil, columns: nil)
-      self.raw_final_section_properties = SectionProperties.new(type, columns)
+    def final_section_properties(type: nil, columns: nil, margin_inches: nil)
+      self.raw_final_section_properties = SectionProperties.new(type, columns, margin_inches)
     end
 
     def final_section_properties!(&block)
