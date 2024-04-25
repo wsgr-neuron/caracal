@@ -74,6 +74,9 @@ module Caracal
                   xml['w'].keepLines({ 'w:val' => '0' })
                   xml['w'].widowControl({ 'w:val' => '1' })
                   xml['w'].spacing(spacing_options(s)) unless spacing_options(s).nil?
+                  ## Disable contextual spacing - Nathan, Thu Apr 25 2024
+                  ## Reference: https://stackoverflow.com/questions/12496289/open-xml-paragraph-spacing
+                  #xml['w'].contextualSpacing({ 'w:val' => '0' })
                   xml['w'].contextualSpacing({ 'w:val' => '1' })
                   xml['w'].jc({ 'w:val' => s.style_align.to_s }) unless s.style_align.nil?
                   xml['w'].ind(indentation_options(s)) unless indentation_options(s).nil?
