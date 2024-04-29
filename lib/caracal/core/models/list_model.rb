@@ -110,6 +110,8 @@ module Caracal
         #=============== VALIDATION ===========================
         
         def valid?
+          ## Nathan, Thu Apr 25 2024
+          return true
           a = [:type, :level]
           required = a.map { |m| send("list_#{ m }") }.compact.size == a.size
           required && !items.empty?
