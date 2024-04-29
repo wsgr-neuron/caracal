@@ -76,10 +76,16 @@ module Caracal
                   xml['w'].spacing(spacing_options(s)) unless spacing_options(s).nil?
                   ## Disable contextual spacing - Nathan, Thu Apr 25 2024
                   ## Reference: https://stackoverflow.com/questions/12496289/open-xml-paragraph-spacing
-                  #xml['w'].contextualSpacing({ 'w:val' => '0' })
-                  xml['w'].contextualSpacing({ 'w:val' => '1' })
+                  #xml['w'].contextualSpacing({ 'w:val' => '1' })
+                  xml['w'].contextualSpacing({ 'w:val' => '0' })
                   xml['w'].jc({ 'w:val' => s.style_align.to_s }) unless s.style_align.nil?
                   xml['w'].ind(indentation_options(s)) unless indentation_options(s).nil?
+
+                  if s.style_id == "Level1"
+                    xml['w'].tabs do
+                      xml['w'].tab({ 'w:val' => 'left', 'w:pos' => 360 })
+                    end
+                  end
                 end
                 xml['w'].rPr do
                   xml['w'].rFonts(font_options(s)) unless s.style_font.nil?

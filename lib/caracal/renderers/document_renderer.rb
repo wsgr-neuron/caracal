@@ -269,14 +269,23 @@ module Caracal
         ls      = document.find_list_style(model.list_item_type, model.list_item_level)
         hanging = ls.style_left.to_i - ls.style_indent.to_i - 1
 
+        paragraph_style = model.paragraph_style
+
         xml['w'].p paragraph_options do
           xml['w'].pPr do
+            if not paragraph_style.nil?
+              xml['w'].pStyle({ 'w:val' => paragraph_style })
+            end
             xml['w'].numPr do
               xml['w'].ilvl({ 'w:val' => model.list_item_level })
               xml['w'].numId({ 'w:val' => list_num })
             end
-            xml['w'].ind({ 'w:left' => ls.style_left, 'w:hanging' => hanging })
-            xml['w'].contextualSpacing({ 'w:val' => '1' })
+            ## Nathan - Thu Apr 25 2024
+            #xml['w'].ind({ 'w:left' => ls.style_left, 'w:hanging' => hanging })
+            xml['w'].ind({ 'w:left' => 0, 'w:right' => 0, 'w:firstLine' => 0 })
+            ## Nathan - Thu Apr 25 2024
+            #xml['w'].contextualSpacing({ 'w:val' => '1' })
+            xml['w'].contextualSpacing({ 'w:val' => '0' })
             xml['w'].rPr do
               xml['w'].u({ 'w:val' => 'none' })
             end
