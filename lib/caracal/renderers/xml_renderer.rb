@@ -79,7 +79,9 @@ module Caracal
       # line feeds from the output.
       #
       def save_options
-        { save_with: Nokogiri::XML::Node::SaveOptions::AS_XML }
+        ## Nathan, Thu Apr 25 2024
+        #{ save_with: Nokogiri::XML::Node::SaveOptions::AS_XML }
+        { save_with: Nokogiri::XML::Node::SaveOptions::AS_XML | Nokogiri::XML::Node::SaveOptions::FORMAT }
       end
 
     end
