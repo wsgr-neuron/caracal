@@ -4,7 +4,7 @@ ENV["LOG_LEVEL"] ||= "_min"
 
 ENV["TEST_BENCH_DETAIL"] ||= ENV["D"]
 
-require_relative "../init.rb"
+require_relative "../init"
 
 require "pp"
 require "test_bench"; TestBench.activate
